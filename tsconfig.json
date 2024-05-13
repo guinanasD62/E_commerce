@@ -12,15 +12,16 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": "src",
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/dashboard/layout.jsx", "src/app/dashboard/products/add/page.tsx", "src/app/dashboard/users/add/page.jsx", "src/app/dashboard/products/[id]/page.jsx", "src/app/dashboard/users/page.jsx", "src/app/dashboard/users/[id]/page.jsx"],
   "exclude": ["node_modules"]
 }

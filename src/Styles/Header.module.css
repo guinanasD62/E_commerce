@@ -1,0 +1,45 @@
+.body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+.header {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #FFDB58;
+    color: #734f96;
+  }
+  
+  .title {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .navList {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navItem {
+    margin-left: 20px;
+  }
+  
+  .navItem a {
+    color: rgb(115,79,150);
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  .navItem a:hover {
+    background-color: #734f96;
+    color: #FFDB58 ;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  
+  
