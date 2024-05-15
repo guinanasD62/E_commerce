@@ -13,7 +13,7 @@ const menuItems = [
       title: "Pages",
       list: [
         {
-          title: "Dashboard",
+          title: "dashboard",
           path: "/dashboard",
           icon: <MdDashboard />,
         },
@@ -26,6 +26,11 @@ const menuItems = [
           title: "Products",
           path: "/dashboard/products",
           icon: <MdShoppingBag />,
+        },
+        {
+          title: "Logged in as Customer",
+          path: "/customer",
+          icon: <MdSupervisedUserCircle />,
         }
     ]
 }

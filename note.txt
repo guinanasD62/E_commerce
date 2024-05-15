@@ -47,7 +47,7 @@ process.env.Mongo
             <tr key={user.id}>
 
 
-> next.config.js   images>protocol> hostname 
+> RR next.config.js   images>protocol> hostname 
 
 ============================================================
 ============================================================

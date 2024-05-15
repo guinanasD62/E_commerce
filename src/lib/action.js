@@ -1,6 +1,6 @@
 "use server"
 import { revalidatePath } from "next/cache";
-import { Product, User } from "../lib/models"
+import { Product, User } from "./models"
 import { connectToDb } from "./utils";
 import { redirect } from "next/navigation";
 import  bcrypt from "bcrypt";
