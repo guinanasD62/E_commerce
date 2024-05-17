@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -77,9 +77,204 @@ const productSchema = new mongoose.Schema({
     timestamps: true,
 });
 
+
+
+// const orderSchema = new mongoose.Schema({
+//     products: [{
+//         productId: {
+//             type: Schema.Types.ObjectId,
+//             ref: 'Product',
+//             required: true
+//         },
+//         price: {
+//             type: Number,
+//             required: true
+//         },
+//         title: {
+//             type: String,
+//         },
+//         img: {
+//             type: String
+//         },
+//         color: {
+//             type: String
+//         },
+//         size: {
+//             type: String
+//         },
+//         stock: {
+//             type: Number
+//         }
+//     }],
+//     users: [{
+//     userId: {
+//         type: Schema.Types.ObjectId,
+//         ref: 'User',
+//         required: true
+//     },
+//     username: {
+//         type: String,
+//     },
+//     email: {
+//         type: String,
+//     },
+//     phone: {
+//         type: String,
+//     },
+//     address: {
+//         type: String,
+//     },
+//     }],
+    
+//     delivered: {
+//         type: Boolean,
+//         default: false,
+//     },
+//     quantity: {
+//         type: Number,
+//         required: true,
+//         min: 0
+//     },
+//     totalPrice: {
+//         type: Number,
+//         required: true,
+//         min: 0
+//     },
+//     currentStock: {
+//         type: Number,
+//     }
+
+// }, {
+//     timestamps: true
+// });
+
+
+
+// const orderSchema = new mongoose.Schema({
+  
+//         orderProductId: {
+//             type: String,
+//         },
+//         orderProductprice: {
+//             type: Number,
+//         },
+//         orderProducttitle: {
+//             type: String,
+//         },
+//         orderProductimg: {
+//             type: String
+//         },
+//         orderProductcolor: {
+//             type: String
+//         },
+//         orderProductsize: {
+//             type: String
+//         },
+//         orderProductstock: {
+//             type: Number
+//         },
+   
+
+//         orderUserId: {
+//             type: String,
+//     },
+//     orderUserusername: {
+//         type: String,
+//     },
+//     orderUseremail: {
+//         type: String,
+//     },
+//     orderUserphone: {
+//         type: String,
+//     },
+//     orderUseraddress: {
+//         type: String,
+//     },
+  
+    
+//     delivered: {
+//         type: Boolean,
+//         default: false,
+//     },
+//     quantity: {
+//         type: Number,
+//         default: 1,
+//     },
+//     totalPrice: {
+//         type: Number,
+//     },
+//     currentStock: {
+//         type: Number,
+//     }
+
+// }, {
+//     timestamps: true
+// });
+
+const orderSchema = new mongoose.Schema({
+    orderProductId: {
+        type: String,
+    },
+    orderProductprice: {
+        type: Number,
+    },
+    orderProducttitle: {
+        type: String,
+    },
+    orderProductimg: {
+        type: String,
+    },
+    orderProductcolor: {
+        type: String,
+    },
+    orderProductsize: {
+        type: String,
+    },
+    orderProductstock: {
+        type: Number,
+    },
+    orderUserId: {
+        type: String,
+    },
+    orderUserusername: {
+        type: String,
+    },
+    orderUseremail: {
+        type: String,
+    },
+    orderUserphone: {
+        type: String,
+    },
+    orderUseraddress: {
+        type: String,
+    },
+    delivered: {
+        type: Boolean,
+        default: false,
+    },
+    orderStatus: {
+        type: String,
+        enum: ['addToCart', 'checkOut', 'delivered'],
+        default: 'addToCart'
+    },
+    quantity: {
+        type: Number,
+        default: 1,
+    },
+    totalPrice: {
+        type: Number,
+    },
+    currentStock: {
+        type: Number,
+    }
+}, {
+    timestamps: true
+});
+
 //if there is an existing schema: use, none? c new one
 export const User = mongoose.models.User || mongoose.model("User", userSchema); 
 export const Product = mongoose.models.Product || mongoose.model("Product", productSchema);
+export const Order = mongoose.models.Order || mongoose.model("Order", orderSchema);
 
 
 // suggested by gpt

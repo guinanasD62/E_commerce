@@ -22,9 +22,10 @@
   
   .table{
     width: 100%;
+    padding: 15px;
   }
   
-  .table td{
+  .table .td{
     padding: 10px;
   }
   

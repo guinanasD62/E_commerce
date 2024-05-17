@@ -35,14 +35,14 @@ const ProductsPage = async () => {
         {products.map((product) =>(
           <tr>
             <td><div className={styles.product}>
-              <Image src={product.img || "/noavatar.png"} alt="" width={60}
+              <Image src={product.img || "/noavatar.png"} alt="" width={40}
                     height={40}  style={{ borderRadius: '50%' }}
-                    className={styles.userImage}/>
+                    className={styles.productImage}/>
               {product.title}
               </div>
             </td>   
             <td>{product.desc}</td>
-            <td>{product.price}</td>
+            <td>{product.price?.toString()}</td>
             <td>{product.createdAt?.toString().slice(4,16)}</td>
             <td>{product.stock}</td>
             <td>

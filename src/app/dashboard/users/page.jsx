@@ -38,7 +38,7 @@ const UsersPage = async () => {
         </thead>
         <tbody>
         {users.map((user) => (
-            <tr key={user.id}>
+            <tr key={user._id}>
   
             <td><div className={styles.user}>
               <Image src={user.img || "/noavatar.png"} alt="" width={40}

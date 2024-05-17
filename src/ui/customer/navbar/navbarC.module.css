@@ -1,28 +1,37 @@
-
-.container{
-  position: sticky;
-  top: 40px;
+.container {
+  margin-top: 0px;
+  padding: 0px;
 }
 
-.userTitle{
-  font-size: 12px;
-  color: #fffffa;
-}
-
-.list{
-  list-style: none;
-}
-
-.cat{
-  color: #fffffa;
-  font-weight: bold;
-  font-size: 13px;
-  margin: 10px 0px;
-}
-
-.logout{
+.containerNav {
   padding: 20px;
-  margin: 5px 0px;
+  display: flex;
+  justify-content: space-between; /* Add this line */
+  align-items: center;
+  border-radius: 10px;
+  background-color: #d1b457;
+  margin: 0; /* Remove margin */
+}
+
+.userTitle {
+  font-size: 30px;
+  color: #fffffa;
+}
+/* .conNav{
+  margin-right: 600px;
+} */
+
+.list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Add space between list items */
+  margin: 0; /* Remove margin */
+  padding: 0; /* Remove padding */
+}
+
+.logout {
+  padding: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -31,22 +40,27 @@
   background: none;
   border: none;
   color: white;
-  width: 100%;
 }
 
-.logout:hover{
+.logout:hover {
   background-color: #2e374a;
 }
+
 .containerCustomer {
+ 
   padding: 20px;
   display: flex;
   align-items: center;
+  /* float: right; */
   gap: 10px;
-  margin: 5px 0px;
   border-radius: 10px;
+  color: #000000;
+  font-size: 18px;
+  /* margin: 0 10px; Adjust margin to make it horizontal */
 }
 
 .containerCustomer:hover,
 .active {
   background-color: #2e374a;
+  color: #ffffff;
 }

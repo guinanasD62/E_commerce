@@ -107,21 +107,39 @@ RR
 // image and quantity for now is important and the orders orders like customer has placed any orders for this OK.
 // redux
 
-38: 12 , 18
- si davidnaguol pag ayo og nawad an og paglaom,
- nahasol sa iyang sala
- ang sad nga part sab kay sa 11 nibati sab siyang gibiyaan sa iyang mga higala
- iyang mga suod nagpalayo kaniya
- nakakat on ko
- isip higala dili nako pa bug atan og samot ang iyang gipas an
+============================================================
+============================================================
+
+https://www.youtube.com/watch?v=06g6YJ6JCJU&t=469s
+8.11
 
 
-pagpasaylo
-kung gipasaylo siya ni Jah ngay andam sab kong mupasaylo
+require output/files
+utilization for entrac 8hrs
+inform/updates the higher up
+help/ eliminate
+anticipate possible requirements
 
 
- ang kamubo sa kinabuhi sa tawo, 
-gitandi nga sama rag gininhawa 39:5,11
+zustand 
+state management
 
-nganong ang kahadlok nga desiplinahon dili angayng magpugonf nato sa pagpangayog tabang sa mga ansyano
-disiplina heb12,11
+
+///
+produx
+reduxprd isAdmin
+redux together with Fetchingthuck
+include the redux thunk
+
+per add on flag
+more shema
+orders schema
+boolean, 
+click purhchase flag
+
+flag means bolean ordersorder placed
+ flag as orderPlace : boolean,
+ multiple once you click order this mist get through
+ succesful polls
+
+multiple customer :: each customer has each cart

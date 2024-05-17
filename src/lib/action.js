@@ -1,6 +1,6 @@
 "use server"
 import { revalidatePath } from "next/cache";
-import { Product, User } from "./models"
+import { Order, Product, User } from "./models"
 import { connectToDb } from "./utils";
 import { redirect } from "next/navigation";
 import  bcrypt from "bcrypt";
@@ -166,4 +166,172 @@ export const deleteProduct = async (formData) => {
     }
 
     revalidatePath("/dashboard/products"); // no need to use usequery || swrr
+};
+
+// export const addOrder = async (formData) => {
+
+//   // const username  = formData.get("username") // instead of writing them one by one we can re constructure then
+//   const { 
+//     orderProductId,
+//     orderProductprice,
+//     orderProducttitle,
+//     orderProductimg,
+//     orderProductcolor,
+//     orderProductsize,
+//     orderProductstock,
+//     delivered,
+//     quantity,
+//     totalPrice,
+//     currentStock, } = 
+//   Object.fromEntries(formData);
+
+//   try{
+
+
+//       connectToDb();
+//       const newOrder = new Order ({
+          
+//         orderProductId,
+//         orderProductprice,
+//         orderProducttitle,
+//         orderProductimg,
+//         orderProductcolor,
+//         orderProductsize,
+//         orderProductstock,
+//         delivered,
+//         quantity,
+//         totalPrice,
+//         currentStock,
+//       });
+
+     
+//       await newOrder.save(); //saving to s
+//   }catch(error){
+//       console.error(error);
+//       // throw new Error("Failed to create order.")
+//   }
+
+//   revalidatePath("/customer/products"); // no need to use usequery || swrr
+//   // redirect("/dashboard/users");
+// };
+
+
+export const addOrder = async (formData) => {
+ 
+  try {
+    const { 
+      orderProductId,
+      orderProductprice,
+      orderProducttitle,
+      orderProductimg,
+      orderProductcolor,
+      orderProductsize,
+      orderProductstock,
+      delivered,
+      quantity,
+      totalPrice,
+      currentStock,
+      orderStatus
+  } = Object.fromEntries(formData);
+
+      await connectToDb();
+
+      const newOrder = new Order({
+          orderProductId,
+          orderProductprice: Number(orderProductprice),
+          orderProducttitle,
+          orderProductimg,
+          orderProductcolor,
+          orderProductsize,
+          orderProductstock: Number(orderProductstock),
+          delivered: Boolean(delivered),
+          quantity: Number(quantity),
+          totalPrice: Number(totalPrice),
+          currentStock: Number(currentStock),
+          orderStatus
+      });
+
+      await newOrder.save();
+  } catch (error) {
+      console.error(error);
+      // Optionally, handle the error
+  }
+
+  revalidatePath("/customer/products");
+};
+
+
+export const updateOrder = async (formData) => {
+  const { orderProductId,
+    orderProductprice,
+    orderProducttitle,
+    orderProductimg,
+    orderProductcolo,
+    orderProductsize,
+    orderProductstock,
+    delivered,
+    quantity,
+    totalPrice,
+    currentStock, 
+    orderStatus
+   } =
+    Object.fromEntries(formData);
+  
+        // orderUserId,
+    // orderUserusername,
+    // orderUseremail,
+    // orderUserphone,
+    // orderUseraddress,    
+  try { 
+    connectToDb();
+
+    const updateFields = {
+      orderProductId,
+      orderProductprice,
+      orderProducttitle,
+      orderProductimg,
+      orderProductcolo,
+      orderProductsize,
+      orderProductstock,
+      
+      delivered,
+      quantity,
+      totalPrice,
+      currentStock,
+      orderStatus
+    };
+
+    //  orderUserId,
+    //   orderUserusername,
+    //   orderUseremail,
+    //   orderUserphone,
+    //   orderUseraddress,   
+    Object.keys(updateFields).forEach(
+      (key) =>
+        (updateFields[key] === "" || undefined) && delete updateFields[key]
+    );
+   
+    await Order.findByIdAndUpdate(id, updateFields);
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to update product!");
+  }
+
+  revalidatePath("/customer/products");
+  // redirect("/dashboard/products");
+};
+
+export const deleteOrder = async (formData) => {
+  const { id } = 
+  Object.fromEntries(formData);
+
+  try{
+      connectToDb();
+      await Order.findByIdAndDelete(id); //saving to s
+  }catch(error){
+      console.log(error);
+      throw new Error("failed to delete product from cart.")
+  }
+
+  revalidatePath("/customer/cart"); // no need to use usequery || swrr
 };

@@ -25,18 +25,20 @@ const menuItems = [
 }
 ]
 
+
 const Navbar = () => {
   return (
     <div className={styles.container}>
-      <ul>
-        <li className={styles.userTitle}>E-commerce</li>
-        <li ><Link href="/customer/products" className={styles.containerCustomer}>Products</Link></li>
-        <li><Link href="/customer/cart" className={styles.containerCustomer}>View Cart</Link></li>
-        <li><Link href="/customer/logout" className={styles.containerCustomer}>Logout</Link></li>
-      </ul>
+      <nav className={styles.containerNav}>
+        <div className={styles.userTitle}><Link href="/dashboard">E-commerce</Link></div>
+        <ul className={styles.list}>
+          <li><Link href="/customer/products" className={styles.containerCustomer}>Products</Link></li>
+          <li><Link href="/customer/cart" className={styles.containerCustomer}>View Cart</Link></li>
+          <li><Link href="/customer/logout" className={styles.containerCustomer}>Logout</Link></li>
+        </ul>
+      </nav>
     </div>
   );
 };
-
 
 export default Navbar
