@@ -29,3 +29,9 @@
     cursor: pointer;
     border-radius: 5px;
   }
+
+  .form h1{
+    color: rgb(158, 138, 23);
+    font-size: 50px;
+    font-weight: bolder;
+  }
